@@ -5,6 +5,7 @@
 function ImportPlayerClass(id){
     
     var listeners = new Array(),
+    registry = new Array(),
     u           = 'undefined',
     f           = 'function';
     
@@ -18,40 +19,67 @@ function ImportPlayerClass(id){
 	    return (isIE) ? window[movieName] : document[movieName];
 	}
 	
+	
+	ImportPlayerClass.prototype.init = function() {
+	    
+	    this.addEventListener("onMediaVolume", function(v){	
+		registry["onMediaVolume"] = v; 
+	    });
+    
+	    this.addEventListener("onMediaDuration", function(v){
+		registry["onMediaDuration"] = v;
+	    });
+
+	    this.addEventListener("onMediaCurrentPosition", function(v){
+		registry["onMediaCurrentPosition"] = v;
+	    });
+    
+	}
+	
+	
 	ImportPlayerClass.prototype.load = function(url){
 	    this.player().load(url);
+	    return this;
 	}
 	
 	ImportPlayerClass.prototype.play = function(){
 	    this.player().play();
+	    return this;
 	}
 	
 	ImportPlayerClass.prototype.pause = function(){
 	    this.player().pause();
+	    return this;
 	}
 	
 	ImportPlayerClass.prototype.stop = function(){
 	    this.player().stop();
+	    return this;
 	}
 
 	ImportPlayerClass.prototype.setVolume = function(vol){
 	    this.player().setVolume(vol);
+	    return this;
 	}
 	
 	ImportPlayerClass.prototype.getVolume = function(){
 	    this.player().getVolume();
+	    return registry["onMediaVolume"];
 	}
 	
 	ImportPlayerClass.prototype.setPosition = function(x){
 	    this.player().setPosition(x);
+	     return this;
 	}
 	
 	ImportPlayerClass.prototype.getPosition = function(){
-	    this.player().getPosition();
+	    this.player().getPosition();	    
+	    return registry["onMediaCurrentPosition"];
 	}
 	
 	ImportPlayerClass.prototype.getDuration = function(){
 	    this.player().getDuration();
+	    return registry["onMediaDuration"];
 	}
 	
 	ImportPlayerClass.prototype.addEventListener = function(event, fn){
@@ -78,7 +106,7 @@ function ImportPlayerClass(id){
 		}
 	    }
 	}
-
+	
 	ImportPlayerClass.prototype.dispatchEvent = function(event, data){
 	    var f = listeners[event];
 	    if(typeof(f) !== u){
@@ -93,4 +121,5 @@ function ImportPlayerClass(id){
 }
 
 //instance player
-var ImportPlayer = new ImportPlayerClass("import-player");
+var ImportPlayer = new ImportPlayerClass("import-player");	    
+ImportPlayer.init();
