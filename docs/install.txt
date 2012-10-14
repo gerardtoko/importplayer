@@ -1,0 +1,33 @@
+
+<html>
+    <head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<script src="player/import.player.js"></script>
+	<script src="js/import.main.js"></script>
+    </head>
+    <body onload="main()">
+	    <object type="application/x-shockwave-flash" width="2" height="2" 
+		    id="import-player" data="player/import.player.swf"> 
+		    <param name="allowScriptAccess" value="always" />
+		    <param name="movie" value="player/import.player.swf">
+	    </object>
+
+	    <button   onclick="ImportPlayer.play()">play</button>
+	    <button   onclick="ImportPlayer.pause()">pause</button>
+	    <button   onclick="ImportPlayer.stop()">stop</button>
+
+	    <button   onclick="ImportPlayer.getDuration()" >get duration</button>
+
+	    <button   onclick="ImportPlayer.setPosition(30000)">position (30s)</button>
+	    <button   onclick="ImportPlayer.getPosition()">get position</button>
+
+	    <button   onclick="ImportPlayer.setVolume(0)">volume (0)</button>
+	    <button   onclick="ImportPlayer.setVolume(0.5)">volume (0.5)</button>
+	    <button   onclick="ImportPlayer.setVolume(1)">volume (1)</button>
+	    <button   onclick="ImportPlayer.getVolume()">get volume</button>
+	    <span id="buffer"></span>
+	    <span id="volume"></span>
+    </body>
+</html>

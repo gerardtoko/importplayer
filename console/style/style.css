@@ -1,0 +1,21 @@
+
+
+
+/* --- STYLES DE MAIN --- */
+
+.main-wrapper {
+    margin: 100px auto auto;
+    width: 780px;
+}
+
+#console {
+    border: 1px solid #CCCCCC;
+    font-size: 12px !important;
+    height: 300px;
+    overflow-y: scroll;
+    padding: 5px;
+    margin-bottom: 100px;
+}
+#console hr {
+    margin: 5px 0!important;
+}

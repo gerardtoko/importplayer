@@ -1,0 +1,58 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<link rel="stylesheet" href="../bootstrap.twitter/css/bootstrap.min.css">
+	<link rel="stylesheet" href="style/style.css">
+
+	<script src="../player/import.player.js"></script>
+	<script src="js/import.main.js"></script>
+    </head>
+    <body onload="main()">
+	<div class="main-wrapper">
+
+	    <h1>Import Player Console</h1>
+	    <p><a href="../" ><strong>Documentation</strong></a></p>
+	    <!-- le player flash perso-->
+	    <object type="application/x-shockwave-flash" width="2" height="2" id="import-player" data="../player/import.player.swf"> 
+		<param name="allowScriptAccess" value="always" />
+		<param name="movie" value="../player/import.player.swf">
+	    </object>
+	    <br>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.load('audio/ham.mp3')">load and play</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.play()">play</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.pause()">pause</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.stop()">stop</button>
+	    <br>
+	    <br>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.getDuration()" >get duration</button>
+	    <br>
+	    <br>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setPosition(15000)">position (15s)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setPosition(30000)">position (30s)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setPosition(45000)">position (45s)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setPosition(265000)">position (265s)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.getPosition()">get position</button>
+	    <br>
+	    <br>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setVolume(0)">volume (0)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setVolume(0.25)">volume (0.25)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setVolume(0.5)">volume (0.5)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.setVolume(0.75)">volume (0.75)</button>
+	    <button  class="btn btn-small" type="button"  onclick="ImportPlayer.setVolume(1)">volume (1)</button>
+	    <button  class="btn btn-small" type="button" onclick="ImportPlayer.getVolume()">get volume</button>
+	    <br>
+	    <br>
+	    <hr>
+	    <div id="console">
+
+	    </div>
+	</div>
+    </body>
+</html>
